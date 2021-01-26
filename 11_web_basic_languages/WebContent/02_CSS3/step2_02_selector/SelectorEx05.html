@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CLASS 선택자 </title> 
+<style>
+	
+	/*
+	
+		- 선택자 그룹 선택자를 ,로 분리하여 나열하여 사용할 수 있다. 
+	*/
+	
+	
+	/*
+		클래스 type1인 요소를 선택해서
+		텍스트 정렬을 중앙 정렬로 변경한다.
+	*/
+	h1 , h2 , h3{
+		text-align: center;
+	}
+	
+	/*
+		클래스 type1인 P요소를 선택해서
+		텍스트 정렬을 중앙 정렬로 변경한다.
+	*/
+	p.type1 , p.type2 , p.type3 {
+		color : red;
+		text-align: center;
+	}
+	
+</style>
+</head>
+<body>
+
+	<h1 class="type1">class가 type1인 헤딩입니다.</h1>
+	<h2 class="type1">class가 type1인 헤딩입니다.</h2>
+	<h3 class="type1">class가 type1인 헤딩입니다.</h3>
+	<p class="type1">class가 type1인 단락입니다</p>
+	<p class="type2">class가 type1인 단락입니다</p>
+	<p class="type3">class가 type1인 단락입니다</p>
+	
+</body>
+</html>

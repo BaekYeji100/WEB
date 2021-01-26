@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CLASS 선택자</title>
+<style>
+	/*
+		
+		# class 선택자 
+		
+		- 클래스 선택자는 .을 이용해서 정의한다.
+		- id선택자는 하나의 요소를 선택하는 반면에
+		  클래스 선택자는 여러개의 요소를 한꺼번에 선택한다.
+	
+	*/
+	
+	.type1 {
+		background-color: pink;
+	}
+
+	p.type1 { /* p 태그 안에 있는 type1 클래스 */
+		background-color: purple;	
+	}
+	
+</style>
+</head>
+<body>
+	<h1 class="type1">class가 type1인 헤딩입니다. </h1>
+	<h1 class="type1">class가 type1인 헤딩입니다. </h1>
+	<h1 class="type1">class가 type1인 헤딩입니다. </h1>
+	<p class="type1">p태그의 class가 type1인 헤딩입니다. </p>
+</body>
+</html>

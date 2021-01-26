@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>prompt</title>
+<script>
+
+	/*
+	
+		[ 형식 ]
+		
+		prompt("안내 문자열" , "기본값");
+	
+		- prompt의 기본 데이터타입은 '문자열' 이다.
+	
+	*/
+
+	var getData1 = prompt("나이를 입력하세요.");
+	document.write(typeof getData1 + " : " + getData1 + "<br>");
+	
+	var getData2 = prompt("이름을 입력하세요." , "제임스 고슬링");
+	document.write(typeof getData2 + " : " + getData2 + "<br>");
+	
+	var getData3 = prompt("다시 나이를 입력하세요.");
+	getData3 = Number(getData3);
+	document.write(typeof getData3 + " : " + getData3 + "<br>");
+	
+	// +@) NaN(Not A Number) : 숫자가 아님.
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

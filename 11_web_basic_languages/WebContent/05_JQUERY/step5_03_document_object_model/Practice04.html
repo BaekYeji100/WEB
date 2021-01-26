@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연습예시4</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+		
+		$("h2").css("background","yellow");
+		$("h2").css("width","200px");
+		$("h2").css("height","200px");
+		
+		$("h2, #id1, #id2").css("background","pink");
+		
+ 		$("#id1").css("background","red");
+		$("#id2").css("background","pink");
+		
+		$("#span1").css("background","silver");
+		$("#span2").css("background","gold");
+		
+	});
+	
+</script>
+</head>
+<body>
+	
+	<h2>Hello World</h2>
+	<div>
+		<div id="id1">
+			id1입니다.
+		</div>
+		<span id="span1">span1 입니다.</span>
+		<span id="span2">span2 입니다.</span>
+		<div id="id2">
+			id2 입니다.
+		</div>
+	</div>
+	
+</body>
+</html>

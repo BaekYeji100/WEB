@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>name과 자바스크립트</title>
+</head>
+<body>
+	<input type="checkbox"  name="subject" value="html"> html
+	<input type="checkbox"  name="subject" value="css"> css
+	<input type="checkbox"  name="subject" value="javascript"> javascript
+	<input type="button" value="버튼" onclick="process1()"><br>
+	
+
+	<input type="radio" id="chrome" name="browser" value="chrome" checked> chrome
+	<input type="radio" id="fireFox" name="browser" value="fireFox"> fireFox
+	<input type="radio" id="exploreEdge" name="browser" value="exploreEdge"> exploreEdge       
+	<input type="button" value="버튼" onclick="process2()">
+	
+	
+	<script>
+		
+		/*
+		
+			# getElementByName("#name");
+		
+			- HTML문서에 name이 일치한 값을 선택한다.
+			- 데이터가 컬렉션 형태로 저장된다.
+			
+		*/
+	
+		function process1() {
+			
+			alert("process1 함수가 실행되었습니다. ");
+
+			// 예시 1) 배열의 크기 확인
+			console.log(document.getElementsByName("subject").length);
+			console.log("====================");
+			
+			// 예시 2) 벨류값 확인해보기
+			for (var i=0; i<document.getElementsByName("subject").length; i++){
+				console.log(document.getElementsByName("subject")[i].value);
+			}
+			console.log("====================");
+
+
+			// 예시 3) check되어어있는 값을 확인해보기
+			for (var i =0; i<document.getElementsByName("subject").length; i++){
+
+				if (document.getElementsByName("subject")[i].checked == true) {
+					console.log(document.getElementsByName("subject")[i].value +"(체크)");
+				}
+				else {
+					console.log(document.getElementsByName("subject")[i].value);
+				}
+
+			}
+
+
+			// 예시 4) 특별한 값의 check를 변경해보기
+			document.getElementsByName("subject")[0].checked = true;
+
+
+			// 예시 5) 특정 속성값 부여
+			for (var i = 0 ; document.getElementsByName("subject").length; i++) {
+				document.getElementsByName("subject")[i].setAttribute("disabled","disabled");
+			}
+
+		}
+	
+		
+		function process2() {
+			
+			alert("process2함수가 실행되었습니다.");
+			
+			var eleBroswer = document.getElementsByName("browser");
+			
+			// 예시 1) 배열의 크기 확인
+			console.log(eleBroswer.length);
+			console.log("====================");	
+			
+			
+			// 예시 2) 벨류값 확인해보기
+			for (var i = 0; i < eleBroswer.length; i++) {
+				console.log(eleBroswer[i].value);
+			}
+			console.log("====================");
+			
+			
+			// 예시 3) check되어있는 값을 확인해보기
+			for (var i = 0; i < eleBroswer.length; i++) {
+				if ( eleBroswer[i].checked == true) {
+					console.log(eleBroswer[i].value + "(체크)");
+				}
+				else {
+					console.log(eleBroswer[i].value);
+				}
+			}
+			
+			// 예시 4) 특별한 값의 check를 변경해보기
+			eleBroswer[0].checked = true;
+			
+			
+			// 예시 5) 특정 속성값 부여
+			for (var i = 0; i< eleBroswer.length; i++) {
+				eleBroswer[i].setAttribute("disabled","disabled");
+			}
+			
+		}
+		
+		
+		
+	
+	</script>
+	
+</body>
+</html>

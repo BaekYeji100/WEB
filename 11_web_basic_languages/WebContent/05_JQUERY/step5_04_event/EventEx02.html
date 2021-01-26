@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>바인딩 이벤트</title>
+<style>
+	.toggle {
+		background-color: yellow;
+		color  : red;
+		cursor : pointer;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	/*
+	
+		$(셀렉터).bind() : 현재 문서에 존재하는 객체에 동적으로 event 속성을 부여
+		$(셀렉터).unbind() : bind로 생성된 이벤트 제거
+		
+		$(셀렉터).on()  : bind와 기능은 같으며 1.7 버전 이후로 쓰이는 메서드 (bind보단 on을 사용 권장)
+		$(셀렉터).off() : on으로 생성된 동적 이벤트 제거
+		
+		[ 형식 ]
+		
+		$(셀렉터).on(이벤트명, function(){ 
+			 기능 명시;
+		}); 
+			
+		- 셀렉터   : 이벤트를 적용할 태그나 아이디, 
+		- 이벤트명 : 제이쿼리 이벤트 (예시  click, mouseenter, mouseleave)
+	
+	*/
+
+	$(document).ready(function(){
+		
+		$("#target").on("mouseenter",function(){
+			$(this).addClass("toggle");
+		});
+		
+		$("#target").on("mouseleave",function(){
+			$(this).removeClass("toggle");
+		});
+		
+		$("#removeEvent").click(function(){
+			//$("#target").off(); 			// 모든 이벤트 제거
+			$("#target").off("mouseleave"); // 특정 이벤트만 제거
+		}); 
+		
+	});
+	
+</script>
+
+</head>
+<body>
+
+	<div id="target"> On Off 이벤트</div>
+	<button id="removeEvent">이벤트 제거</button>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css와 자바스크립트</title>
+<script>
+	
+	function changeImage() {
+		document.getElementById("image").src = "images/poodle.png";
+	}
+	
+	
+	var idx = 1;
+	function changePhotos(direct) {
+		
+		if (direct == "before") {
+			idx--;
+		}
+		else {
+			idx++;
+		}
+		document.getElementById("photo").src = ("images/pic_"+idx+".jpg");
+	}
+	
+	
+	function changeStyle() {
+		document.getElementById("p1").style.color="red";
+		document.getElementById("p1").style.fontStyle="italic";
+		document.getElementById("p1").style.backgroundColor="skyblue";
+	}
+	
+	
+	
+</script>
+</head>
+<body>
+	<img id="image" src="images/pome.png" width="120" height="100">
+	<input type="button" onclick="changeImage()" value="버튼">
+	<hr>
+	
+	<div>
+		<p><img id="photo" alt="사진입니다." src="images/pic_1.jpg" width="200" height="200" ></p>
+		<button onclick="changePhotos('before')">이전</button>
+		<button onclick="changePhotos('after')">다음</button>
+	</div>
+
+	<div>
+		<p id="p1" > This is a paragraph</p>
+		<button onclick="changeStyle()">버튼</button>
+	</div>
+
+
+
+
+
+
+
+</body>
+</html>

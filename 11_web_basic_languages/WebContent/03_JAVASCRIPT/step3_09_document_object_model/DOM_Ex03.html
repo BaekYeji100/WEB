@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>class와 자바스크립트</title>
+</head>
+<body>
+	
+	<div class="content">데이터1</div>
+	<div class="content">데이터2</div>
+	<div class="content">데이터3</div>
+	<div class="content">데이터4</div>
+	<div class="content">데이터5</div>
+	<input type="button" onclick="func()" value="버튼">
+
+
+	<script>
+	
+		function func() {
+			
+			alert("버튼이 클릭되었습니다.");
+			
+			var eleContent = document.getElementsByClassName("content");
+		
+			console.log(eleContent.length);
+			console.log("=======================");
+			
+			for (var i = 0; i < eleContent.length; i++) {
+				console.log(eleContent[i].innerHTML);
+			}
+			console.log("=======================");
+			
+			for (var i = 0; i < eleContent.length; i++) {
+				eleContent[i].innerHTML = "수정된 데이터" + (i+1);
+			}
+			
+			for (var i = 0; i < eleContent.length; i++) {
+				console.log(eleContent[i].innerHTML);
+			}
+			console.log("=======================");
+			
+		
+		}
+	
+	</script>
+
+
+
+</body>
+</html>

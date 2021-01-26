@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>전체 선택자</title>
+<style>
+
+	* {
+		background-color: gray;	/* html 문서 전체에 적용 */
+	}
+	
+	#container * {	/* container id안의 모든 요소에 적용 */
+		text-align: center;
+	}
+
+</style>
+</head>
+<body>
+
+	<h1>This headLine is very important</h1>
+	<h2>This headLine is very important</h2>
+	<h3>This headLine is very important</h3>
+	
+	<div id="container">
+		<h1>This headLine is very important</h1>
+		<h2>This headLine is very important</h2>
+		<h3>This headLine is very important</h3>
+		<div id="container-sub">
+			<h1>This headLine is very important</h1>
+			<h2>This headLine is very important</h2>
+			<h3>This headLine is very important</h3>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

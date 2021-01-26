@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document.ready</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+	/*
+	
+		- 페이지의 DOM 요소들이 모두 로드가 된 후에 실행이 되는 함수이다.
+		- 자바스크립트의 window.onload = function(){}와 유사한 기능으로 사용된다.
+	
+	*/
+
+	//window.onload = function(){
+	//	document.getElementById("test").style.backgroundColor="blue";
+	//}
+	
+	$(document).ready(function(){
+		$("#test").css("background","red");
+	});
+	
+</script>
+</head>
+<body>
+	<div id="test">test page</div>
+</body>
+</html>

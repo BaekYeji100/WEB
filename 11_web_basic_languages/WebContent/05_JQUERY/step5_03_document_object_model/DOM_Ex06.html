@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>prop</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+	$(document).ready(function(){
+		
+		$("#changeSelectBox").click(function(){
+			
+			// 예시1) 선택된 셀렉트 박스의 value를 가져오기
+			alert("선택된 value = " + $("#selectBox option:selected").val());
+			
+			// 예시2) 선택된 셀렉트 박스의 값을 다른 값으로 변경하기
+			var changeYear = prompt("변경하고 싶은 연도");
+			$("#selectBox").val(changeYear).prop("selected",true);
+			
+			// 예시3) 셀렉트 박스를 비활성화 하기
+			$("#selectBox").prop("disabled",true);
+			
+		});
+		
+		$("#changeRadioBox").click(function(){
+			
+			// 예시1) 선택된 라디오 박스의 value를 가져오기
+			alert("선택된 value = " + $(":radio[name='radioBox']:checked").val());
+			
+			// 예시2) 선택된 라디오 박스의 값을 다른 값으로 변경하기
+			var changeYear = prompt("변경하고 싶은 연도");
+			$(":radio[name='radioBox'][value='"+changeYear +"']").prop("checked",true);
+			
+			// 예시3) 라디오 박스를 비활성화 하기
+			$(":radio[name='radioBox']").prop("disabled",true);
+		
+		});
+		
+		$("#changeCheckBox").click(function(){
+			
+			// 예시1) 체크박스 관련 정보 확인하기
+			alert("전체 체크박의 개수 : " + $(":checkbox[name='checkBoxTest']").length);
+			alert("선택된 체크박의 개수 : " + $(":checkbox[name='checkBoxTest']:checked").length);
+			
+			// 예시2) 선택된 체크 박스의 value를 가져오기
+			$(":checkbox[name='checkBoxTest']:checked").each(function(){
+				alert("선택된 체크박의 value : " + $(this).val());
+			});				
+			
+			// 예시3) 선택된 체크 박스의 값을 다른 값으로 변경하기
+			var changeCnt = prompt("수정하고 싶은 체크박스의 개수");
+			
+			$(":checkbox[name='checkBoxTest']").prop("checked",false); //(참고) 전체 체크 해지
+			
+			for (var i=0; i<changeCnt; i++){
+				var changeYear = prompt("수정하고 싶은 연도 : ");
+				$("#year"+changeYear).prop("checked",true);
+			}
+			
+			// 예시4) 체크 박스를 비활성화 하기
+			$(":checkbox[name='checkBoxTest']").prop("disabled",true);
+			
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<select id="selectBox">
+    	<option value="2018">2018년</option>
+    	<option value="2019">2019년</option>
+    	<option value="2020">2020년</option>
+    	<option value="2021" selected>2021년</option>
+    	<option value="2022">2022년</option>
+    </select>
+    <button id="changeSelectBox">셀렉트 데이터 변경</button>
+    
+    <hr>
+    
+    <input type="radio" name="radioBox" value="2018">2018년
+    <input type="radio" name="radioBox" value="2019">2019년
+    <input type="radio" name="radioBox" value="2020">2020년
+    <input type="radio" name="radioBox" value="2021" checked>2021년
+    <input type="radio" name="radioBox" value="2022">2022년
+	<button id="changeRadioBox">라디오 데이터 변경</button>
+	
+	<hr>
+
+	<input type="checkbox" name="checkBoxTest" id="year2018" value="2018" /> 2018
+	<input type="checkbox" name="checkBoxTest" id="year2019" value="2019" /> 2019
+	<input type="checkbox" name="checkBoxTest" id="year2020" value="2020" /> 2020
+	<input type="checkbox" name="checkBoxTest" id="year2021" value="2021" /> 2021
+	<input type="checkbox" name="checkBoxTest" id="year2022" value="2022" /> 2022
+	<button id="changeCheckBox">체크박스 값 변경</button>
+</body>
+</html>

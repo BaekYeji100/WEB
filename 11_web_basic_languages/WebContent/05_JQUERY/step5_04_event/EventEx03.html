@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문서,윈도우 이벤트</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	/*
+	
+		ready()  : 해당 문서가 로딩 되었을 때 발생하는 이벤트
+		load()   : 이미지 등 페이지 부속 자원을 모두 불러왔을 때 발생하는 이벤트
+		unload() : 해당 문서에서 빠져 나갈 때 발생하는 이벤트
+		resize() : 웹 브라우저 윈도우 사이즈의 변화가 있을 때에 발생하는 이벤트
+		scroll() : 스크롤이 움직일 때에 발생하는 이벤트
+		error()  : http요청이 에러를 반환할 때 발생하는 이벤트	
+	
+	*/
+	
+	$(document).ready(function(){
+		$("#requestBtn").on("click", function() {
+			$("#target").load("./images/sample.txt");
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<button id="requestBtn">메소드 실행</button>
+	<p id="target"></p>
+</body>
+</html>

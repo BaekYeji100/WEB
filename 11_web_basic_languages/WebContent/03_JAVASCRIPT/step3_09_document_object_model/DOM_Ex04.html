@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>tag와 자바스크립트</title>
+</head>
+<body>
+
+	<ol>
+		<li>ol item 1</li>
+		<li>ol item 2</li>
+		<li>ol item 3</li>
+		<li>ol item 4</li>
+		<li>ol item 5</li>
+	</ol>
+	<input type="button" value="버튼" onclick="process1()">
+
+	<ul>
+		<li>ul item 1</li>
+		<li>ul item 2</li>
+		<li>ul item 3</li>
+		<li>ul item 4</li>
+		<li>ul item 5</li>
+	</ul>
+	<ul>
+		<li>ul item 6</li>
+		<li>ul item 7</li>
+		<li>ul item 8</li>
+		<li>ul item 9</li>
+		<li>ul item 10</li>
+	</ul>
+	<input type="button" value="버튼" onclick="process2()">
+	
+	<script>
+		
+		function process1() {
+			
+			alert("process1함수가 실행됩니다.");
+			
+			var eleOl = document.getElementsByTagName("ol");
+			console.log(eleOl.length);
+			console.log("=======================");
+			console.log(eleOl);
+			console.log("=======================");
+			console.log(eleOl[0]);
+			console.log("=======================");
+			console.log(eleOl[0].getElementsByTagName("li").length);
+			console.log("=======================");
+			console.log(eleOl[0].getElementsByTagName("li"));
+			console.log("=======================");
+			
+			var childLi = eleOl[0].getElementsByTagName("li");
+			
+			for (var i = 0; i<childLi.length; i++) {
+				console.log(childLi[i].innerHTML);
+			}
+			console.log("=======================");
+			
+			
+		}
+		
+		
+		function process2() {
+			
+			alert("process2함수가 실행됩니다.");
+			
+			var eleUl = document.getElementsByTagName("ul");
+			
+			for (var i=0; i< eleUl.length; i++) {
+				var eleLi = eleUl[i].getElementsByTagName("li");
+				for (var j=0; j<eleLi.length; j++) {
+					console.log(eleLi[j].innerHTML);
+				}
+				console.log("=======================");
+			}
+			
+			
+			
+		}
+	
+	
+	</script>
+	
+	
+	
+	
+
+</body>
+</html>

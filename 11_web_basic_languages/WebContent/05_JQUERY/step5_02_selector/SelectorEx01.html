@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+	/*
+	
+		- jQuery 의 DOM 탐색은 CSS SELECTER 를 사용하고 있어서 CSS에서 사용한 표현식을 알고 있다면 보다 쉽게 셀렉터를 사용할 수 있다.
+		- jQuery 에서는 원하는 HTML 의 DOM 요소를 찾기 위해서 $(Selector), jQuery(Selector)와 같은 표현식을 사용한다.
+	
+		1) 태그 선택자 
+			
+			- 특정한 태그를 선택
+			
+			[형식]
+			$(‘태그명’) 			 
+			
+	
+		2) 아이디 선택자
+		
+			- 특정id명을 가진 요소 선택
+		
+			[형식]
+			$(‘#id명’) 				 
+		
+		3) 클래스 선택자
+	
+			- 특정class명을 가진 요소 선택
+			
+			[형식]
+			$(‘.class명’)
+	
+		4) 네임 선택자
+		
+			- 특정 name명을 가진 요소 선택
+			
+			[형식]
+			$(태그명[name='name명'])
+			
+		5) 자식 선택자
+	
+			- 직계 자식만 선택
+		
+			[형식]
+			$(‘부모요소1>자식요소2’)
+	
+	
+		6) 후손 선택자
+		
+			- 선택자 하위 요소 포함
+			
+			[형식]
+			$(‘요소1 요소2’) 	  	 
+		
+		7) 멀티 선택자 
+			
+			- 여러 요소를 한번에 선택
+			
+			[형식]
+			$(‘요소1, 요소2’) 		 
+		
+		8) 전체 선택자
+		
+			- dom안의 모든 엘레먼트 선택
+			
+			[형식]
+			$(‘*’)
+		
+	*/
+
+	$(document).ready(function() {
+		
+		// 1) 태그 선택자 예시
+		$("#btn1").click(function(){
+			$("h2").css("color","blue");  // 태그가 h2인 엘리먼트를 찾아서 색상을 blue로 변경한다.
+			$("h3").css("color","green"); // 태그가 h3인 엘리먼트를 찾아서 색상을 green로 변경한다.
+		});
+		
+		// 2) 아이디 선택자 예시
+		$("#btn2").click(function(){
+			$("#header").css("color","red"); // id가 header인 엘리먼트를 찾아서 색상을 red로 변경한다.
+		});
+		
+		// 3) 클래스 선택자 예시
+		$("#btn3").click(function(){
+			$(".title").css("color","yellow"); // class가 title인 엘리먼트를 찾아서 색상을 yellow로 변경한다.
+		});
+			
+		// 4) 네임 선택자 예시
+		$("#btn4").click(function(){
+			$("input[name='id']").css("color","pink");	// name이 id인 엘리먼트를 찾아서 색상을 yellow로 변경한다. 		
+		});
+		
+		// 5) 자식 선택자 예시
+		$("#btn5").click(function(){
+			$("#section>h1").css("color","purple");	// id가 section인 엘리먼트의 직계자식인 h1태그를 찾아서 색상을 purple로 변경한다. 		
+		});											
+		
+		// 6) 후손 선택자 예시
+		$("#btn6").click(function(){
+			$("#tail h1").css("color","gray");	// id가 tail인 엘리먼트의 자손인 h1태그를 모두 찾아서 색상을 gray로 변경한다.   		
+		});
+		
+		// 7) 멀티 선택자 예시
+		$("#btn7").click(function(){
+			$("#nav3,#nav5,#nav7").css("color","orange"); // id가 nav3 , nav5, nav7인 엘리먼트를 찾아서 색상을 orange로 변경한다.
+		});
+		
+		// 8) 전체 선택자 예시
+		$("#btn8").click(function(){
+			$("*").css("color","skyblue"); // DOM의 모든 엘리먼트를 찾아서 색상을 skyblue로 변경한다.
+		});
+		
+		
+	});
+	
+</script>
+<title>기본 선택자</title>
+</head>
+<body>
+
+	<input type="button" id="btn1" value="버튼1"/>				
+	<input type="button" id="btn2" value="버튼2"/>
+    <input type="button" id="btn3" value="버튼3"/>
+    <input type="button" id="btn4" value="버튼4"/>
+    <input type="button" id="btn5" value="버튼5"/>
+    <input type="button" id="btn6" value="버튼6"/>
+    <input type="button" id="btn7" value="버튼7"/>
+    <input type="button" id="btn8" value="버튼8"/>
+    <hr>
+ 	<h2>h2태그</h2>
+ 	<h3>h3태그</h3>
+	name : <input type="text" name="id"><br>
+	<hr>
+    <div id="header">
+		<h1>Header Basic</h1>				<!--header안에 있으므로 직계자식-->
+		<div id="nav1">
+			<h1>Navigation1</h1>			<!--header안에 있긴 하나, nav라는 부모가 있으므로 직계가 아님-->
+		</div>
+		<div id="nav2">
+			<h1>Navigation2</h1>			<!--header안에 있긴 하나, nav라는 부모가 있으므로 직계가 아님-->
+		</div>
+		<div id="nav3">
+			<h1>Navigation3</h1>			<!--header안에 있긴 하나, nav라는 부모가 있으므로 직계가 아님-->
+		</div>
+	</div>
+	<div id="section">
+		<h1 class="title">Selector</h1> 	<!-- section의 직계자식 -->
+		<div id="nav4">	
+			<h1>Navigation4</h1> 			<!-- section의 후손 -->
+		</div>
+		<div id="nav5">	
+			<h1>Navigation5</h1> 			<!-- section의 후손 -->
+		</div>
+	</div>
+	<div id="tail">
+		<div id="nav6">
+			<h1 class="title">Tail</h1> 	<!-- tail의 후손 -->
+			<div id="nav7">	
+				<h1>Navigation7</h1>   	 	<!-- tail의 후손 -->
+				<div id="nav8">
+					<h1>Navigation8</h1> 	<!-- tail의 후손 -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

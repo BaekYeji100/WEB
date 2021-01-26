@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 기초</title>
+</head>
+<body>
+	<!-- 
+	
+		1) 입력양식은 항상 <form>태그로 시작한다. 
+		
+		2) action에 입력을 처리하는 서버 스크립트의 주소를 적어준다. 
+		
+		3) method속성에 입력데이터가 서버로 보내지는 방법을 기술한다. GET과 POST 방식이 있고 기본방식은 GET방식이다. 
+	
+			- GET방식 : URL 주소 뒤에 파라미터를 붙여서 데이터를 전달하는 방식.
+			            ? 기호 앞에적힌 곳은 URL주소가 되고 
+			            ? 기호 뒤에 오는 값들이 서버로 전달되는 파라미터 값이 된다.
+			
+			- POST방식 : 사용자가 입력한 데이터를 URL 주소에 붙이지 않고 
+			             HTTP Request 헤더에 포함시켜서 전송하는 방식이다.
+	
+		4) name : 입력 요소의 이름이며 서버의 변수로 이름처럼 전달된다. 
+
+		
+		[ 추가 속성 ] 
+	
+		- autocomplete : 자동으로 입력을 완성한다.
+		- autofocus    : 페이지가 로드되면 자동으로 입력 포커스를 갖는다.
+		- placeholder  : 입력 힌트를 희미하게 보여준다.
+		- readonly     : 읽기 전용 필드
+		- required     : 입력양식을 제출하기 전에 반드시 채워져 있어야 함을 나타낸다.
+		- pattern      : 허용하는 입력의 형태를 정규식으로 지정한다.
+	
+	 --> 
+
+
+
+  
+  	<!-- 
+  
+  		# fieldset
+  		
+  		- 입력요소를 그룹핑하는데 사용되는 태그이다. 
+		- filedset 요소 안에는 다양한 입력 요소를 넣을 수 있으며 그룹의 경계에 선을 그려준다.
+		- <legend> 태그를 사용하면 그룹에 제목을 붙일 수 있다.
+ 
+ 
+ 
+ 		# label
+ 		
+		- label태그는 <input>요소를 위한 레이블을 정의한다.
+		- label태그의 속성 for를 사용하면 레이블과 input 요소를 서로 연결 할 수 있다.
+		- 마우스로 label을 클릭해도 input요소를 클릭한 것과 똑같은 효과를 낸다.
+	
+	 -->
+	
+	<form action="#" method="get" name="filedSetTest">
+		<fieldset>
+			<legend>인적사항입력</legend>
+			<!-- 명시적 레이블 -->
+			<p><label for="name">이름 :</label> <input type="text" id="name"></p>
+			<p><label for="contact">전화번호 :</label> <input type="text" id="contact"></p>
+			<!-- 암묵적 레이블 -->
+			<p><label>주소 : <input type="text"></label></p>
+		</fieldset>
+	</form>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>가상클래스</title>
+</head>
+<style>
+		/*
+			태그 옆에 :(콜론)이 붙어있으면 가상클래스라고 한다.
+		*/
+
+		a:link    { color:red; }     /* 방문되지 않은 링크 */
+		a:visited { color:green; }   /* 방문했던 링크 */	
+		a:hover   { color:blue; }    /* 마우스가 위에 있을때 */	
+		a:active  { color:yellow; }  /* 마우스가 클릭될 때 */	
+		
+		li {
+			list-style:none;
+		}
+		
+		li:first-child {	
+			color:red;
+		}
+		
+		li:last-child {
+			color:blue;
+		}
+		
+</style>
+
+<body>
+	<a href="http://www.naver.com">네이버로 이동</a>
+	
+	<ul>
+		<li>요소1</li>
+		<li>요소2</li>
+		<li>요소3</li>
+		<li>요소4</li>
+	</ul>
+	
+</body>
+</html>
