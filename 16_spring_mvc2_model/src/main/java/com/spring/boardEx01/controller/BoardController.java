@@ -37,13 +37,15 @@ public class BoardController {
 		return "boardEx01/bList";
 	}
 	
-//	@RequestMapping(value = "/boardWrite" ,method = RequestMethod.GET)
-//	public String boardWriteForm() {
-//		return "boardEx01/bWrite";
-//	}
-//	
-//	@RequestMapping(value = "/boardWrite" ,method = RequestMethod.POST)
-//	public String boardWriteAction() {
-//		return "";
-//	}
+	@RequestMapping(value = "/boardWrite" ,method = RequestMethod.GET)
+	public String boardWriteForm() {
+		return "boardEx01/bWrite";
+	}
+	
+	@RequestMapping(value = "/boardWrite" ,method = RequestMethod.POST)
+	public String boardWriteAction(BoardDTO bdto) {
+		
+		boardService.insert(bdto);
+		return "redirect:boardList";			// redirect : 해당 페이지로 이동한다.
+	}
 }

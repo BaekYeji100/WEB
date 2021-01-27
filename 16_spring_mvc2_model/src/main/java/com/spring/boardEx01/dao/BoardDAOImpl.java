@@ -17,8 +17,12 @@ public class BoardDAOImpl implements BoardDAO {
 	
 	@Override
 	public List<BoardDTO> getAllBoard() {
-		// TODO Auto-generated method stub
 		return session.selectList("com.spring.mapper.BoardMapper.getAllBoard");
+	}
+
+	@Override
+	public void insertBoard(BoardDTO bdto) {
+		session.insert("com.spring.mapper.BoardMapper.insertBoard",bdto);
 	}
 	
 	
