@@ -32,5 +32,42 @@
 			#{content}
 		)
 	</insert>
+	
+	
+	<select id="getOneboard" resultType="com.spring.boardEx01.dto.BoardDTO">
+		SELECT 
+			*
+		FROM
+			BOARD
+		WHERE
+			NUM=#{num}
+	</select>
+	<update id="increaseReadCount">
+		UPDATE
+			BOARD
+		SET
+			READ_COUNT = REAd_COUNT + 1
+		WHERE
+			NUM = #{num}
+	</update>
+	
+	<select id="vaildateUserCheck" resultType="com.spring.boardEx01.dto.BoardDTO">
+		SELECT
+			*
+		FROM
+			BOARD
+		WHERE
+			NUM=#{num} AND PASSWORD=#{password}
+	</select>
+	
+	<update id="updateBoard">
+		UPDATE
+			BOARD
+		SET
+			SUBJECT=#{subject},
+			CONTENT=#{content}
+		WHERE
+			NUM=#{num}
+	</update>
 </mapper>
 		

@@ -17,15 +17,32 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO dao;
 	
 	@Override
-	public List<BoardDTO> listAll() {
+	public List<BoardDTO> listAll() throws Exception{
 		// TODO Auto-generated method stub
 		return dao.getAllBoard();
 	}
 
 	@Override
-	public void insert(BoardDTO bdto) {
+	public void insert(BoardDTO bdto) throws Exception{
 		// TODO Auto-generated method stub
 		dao.insertBoard(bdto);
+	}
+
+	@Override
+	public BoardDTO read(int num) throws Exception {
+		dao.increaseReadCount(num);
+		return dao.getOneBoard(num);
+	}
+
+	@Override
+	public boolean modify(BoardDTO bdto) throws Exception {
+		boolean isSucceeed = false;
+		
+		if(dao.validateUserCheck(bdto) != null) {
+			dao.updateBoard(bdto);
+			isSucceeed = true;
+		}
+		return isSucceeed;
 	}
 
 }

@@ -16,13 +16,35 @@ public class BoardDAOImpl implements BoardDAO {
 	private SqlSession session;	// SqlSession 객체를 슾프링에서 생성하여 주입시켜준다.
 	
 	@Override
-	public List<BoardDTO> getAllBoard() {
+	public List<BoardDTO> getAllBoard() throws Exception {
 		return session.selectList("com.spring.mapper.BoardMapper.getAllBoard");
 	}
 
 	@Override
-	public void insertBoard(BoardDTO bdto) {
+	public void insertBoard(BoardDTO bdto) throws Exception{
 		session.insert("com.spring.mapper.BoardMapper.insertBoard",bdto);
+	}
+
+	@Override
+	public BoardDTO getOneBoard(int num) throws Exception {
+		
+		return session.selectOne("com.spring.mapper.BoardMapper.getOneboard",num);
+	}
+
+	@Override
+	public void increaseReadCount(int num) throws Exception {
+		session.update("com.spring.mapper.BoardMapper.increaseReadCount",num);
+	}
+
+	@Override
+	public void updateBoard(BoardDTO bdto) throws Exception {
+		
+		session.update("com.spring.mapper.BoardMapper.updateBoard",bdto);
+	}
+
+	@Override
+	public BoardDTO validateUserCheck(BoardDTO bdto) throws Exception {
+		return session.selectOne("com.spring.mapper.BoardMapper.vaildateUserCheck",bdto);
 	}
 	
 	

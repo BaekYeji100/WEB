@@ -45,7 +45,9 @@
 	7. DAO , DAOImple 생성
 	8. Service , ServiceImpl 생성
 	9. 컨트롤러 생성
+	11. servlet-context.xml 파일에 controller, service, dao 경로 작성
 	10. 화면 생성
+	
 
 
 --%>
