@@ -46,6 +46,12 @@ public class BoardDAOImpl implements BoardDAO {
 	public BoardDTO validateUserCheck(BoardDTO bdto) throws Exception {
 		return session.selectOne("com.spring.mapper.BoardMapper.vaildateUserCheck",bdto);
 	}
+
+	@Override
+	public void deleteBoard(int num) throws Exception {
+		session.delete("com.spring.mapper.BoardMapper.deleteBoard",num);
+		
+	}
 	
 	
 }

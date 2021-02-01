@@ -46,7 +46,7 @@
 		UPDATE
 			BOARD
 		SET
-			READ_COUNT = REAd_COUNT + 1
+			READ_COUNT = READ_COUNT + 1
 		WHERE
 			NUM = #{num}
 	</update>
@@ -69,5 +69,13 @@
 		WHERE
 			NUM=#{num}
 	</update>
+	
+	<delete id="deleteBoard">
+		DELETE FROM
+			BOARD
+		WHERE
+			NUM=#{num}
+	</delete>
+	
 </mapper>
 		
