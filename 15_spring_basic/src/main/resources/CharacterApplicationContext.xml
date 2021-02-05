@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "https://www.springframework.org/dtd/spring-beans-2.0.dtd" >
+<beans>
+	<bean id="characterManager2" class="com.spring.basic.step01_DI.CharacterManager2">
+	</bean>
+	<bean id="character1" class="com.spring.basic.step01_DI.Character1">
+	</bean>
+	<bean id="character2" class="com.spring.basic.step01_DI.Character2">
+		<property name="occupation" value="승급마법사"></property><!-- property태그의 name, value속성을 이용하여 값을 지정할 수 있다. -->
+		<property name="level" value="30"></property><!-- name속성에는 setter를 작성한다 모양은 변수와 같지만 setter가 없으면 인식하지 않는다. -->
+		<property name="power" value="30"></property>
+		<property name="dex" value="30"></property>
+		<property name="mana" value="300"></property>
+	</bean>
+	<bean id="character3" class="com.spring.basic.step01_DI.Character3">
+		<property name="occupation" value="승급 궁수2" />
+		<property name="level" value="30" />			  
+		<property name="power" value="30" />
+		<property name="dex" value="300" />
+		<property name="mana" value="30" />
+	</bean>
+	
+</beans>

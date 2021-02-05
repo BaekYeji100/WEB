@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- mpaaer임을 명시하기 위한 DTD 선언 -->
+<!--  
+
+	1. POJO의 변수와 Table의 Colume명 연결 방법
+	
+		- POJO의 변수명과 Table의 컬럼명이 일치할경우는 ( 두단어가 이어지는 경우가 없을때 ) 
+		  스프링 프레임워크에서 테이블명과 POJO의 변수를 연결하여 준다.
+		  
+		- 일반적으로 POJO의 변수는 CamelCase를 사용하고 테이블의 변수는 SnakeCase 사용하여 
+		  두 값이 일치하지 않는 경우는 추가적으로 연결하는 코드를 구현하여야 한다. 
+	
+			[ 예시 ]
+			
+			   [POJO]	   [Table Colume]
+			productCode	<>	PRODUCT_CODE
+			productName	<>	PRODUCT_NAME
+	
+		- 연결방법은 한가지 방법만 존재하는 것이 아닌 여러가지 방법이 있다.
+	
+			예시 1) mybatis-config파일에 아래의 태그를 추가한다.
+		
+				<settings>
+					<setting name="mapUnderscoreToCamelCase" value="true"/>
+				</settings>
+	
+	
+	
+			예시 2) resultMap태그를 추가로 작성한다.
+		
+				<resultMap id="getProduct" type="000.000.000.Product">  		<< 식별id	, POJO클래스 전체 경로
+		       		<result property="productCode" column="PRODUCT_CODE"/>		<< 변수값   , 컬럼명
+		       		<result property="productName" column="PRODUCT_NAME"/>
+		    	</resultMap>
+		    	
+		    	<select id = ""  resultType="getProduct">						<< 식별id , resultMap의 id
+		    		SELECT
+						PRODUCT_CODE,
+						PRODUCT_NAME
+					FROM
+						PRODUCT		
+		    	</select>
+		
+		
+			예시 3) 쿼리문에서 alias를 작성한다.
+			
+				<select id = "" >
+					SELECT
+						PRODUCT_CODE productCode
+						PRODUCT_NAME productName
+					FROM
+						PRODUCT		
+				</select>
+	
+	
+	
+	2.  <![CDATA[]]> 는 SQL 내부에 연산자가 있을 경우 사용한다. ( '>' '<' 연산자가 태그와 혼동되기 때문 )
+	 
+	 	- 쿼리 내부에 연산자가 없어도 코드의 통일성을 주기 위해 <![CDATA[]]>를 사용하기도 한다. 
+	 
+		<![CDATA[
+			
+			SELECT 
+				*
+			FROM
+				PRODUCT
+			WHERE
+				QUANTITY > 1000
+		
+		]]>
+		
+		
+		
+	3. 동적 쿼리
+	
+		- JSTL과 같이 <c:if> <c:when> <c:otherwise>를 사용하여 쿼리를 동적으로 사용할 수 있다.
+	
+	
+	
+	4.  ${값}  , #{값}
+	
+		- 전달 받은 데이터를 쿼리문에서 ${값}  , #{값}과 같은 형태로 사용된다.
+		- ${값} 과 #{값} 의 데이터 처리 순서 및 작은 문법차이가 있다.
+		- 주로 #{값} 형태를 사용하며 이 형태를 권장한다.
+		
+		
+		
+	5. typeAlias
+	
+		- namespace의 코드량이 길어질 경우 mybatis-config 파일에 <typeAlias>태그로 
+		  alias(별명,별칭)을 지정하여 간편하게 사용할 수 있다.
+	
+		<typeAliases>
+			<typeAlias type="com.spring.dto.MemberDTO"  alias="MemberDTO" />
+			<typeAlias type="com.spring.dto.ProductDTO" alias="ProductDTO"/>
+			<typeAlias type="com.spring.dto.MessageDTO" alias="MessageDTO"/>
+		</typeAliases>
+		
+-->
+
+<mapper namespace="tester">
+	<insert id="insertData1">
+		INSERT INTO MEMBER(
+			NAME,
+			ID,
+			PWD,
+			CONTENT
+		) VALUES (
+			#{name},
+			#{id},
+			#{pwd},
+			#{content}
+		)
+		
+	</insert>
+	
+	<insert id="insertData2">
+		INSERT INTO MEMBER(
+			ID,
+			PWD,
+			)
+		VALUES(
+			#{id},		<!-- 맵 데이터의 #[키}로 값이 주입된다. -->
+			#{pwd})
+	</insert>
+		
+	<insert id="insertData3">
+		INSERT INTO MEMBER(
+			NAME)
+		VALUES(
+			#{name})
+	</insert>
+</mapper>
