@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.BoardMapper">
+	<select id="getSearchBoard" resultType="com.spring.pr1_17.dto.BoardDTO">
+		<choose>
+			<when test="searchKeyword.equals('total')">
+					<choose>
+						<when test="searchWord.equals('')">
+							SELECT
+								*
+							FROM
+								BOARD
+							ORDER BY
+								REF DESC,
+								RE_STEP
+							LIMIT
+								#{startBoardIdx}, #{onePageViewCount}		
+						</when>
+						<otherwise>
+							SELECT
+								*
+							FROM 
+								BOARD
+							WHERE
+								SUBJECT LIKE CONCAT('%',#{searchWord},'%') OR
+								WRITER LIKE CONCAT('%',#{searchWord},'%')
+							ORDER BY
+								REF DESC,
+								RE_STEP
+							LIMIT 
+								#{startBoardIdx}, #{onePageViewCount}
+						</otherwise>
+					</choose>
+			</when>
+			<otherwise>	<!-- 서치키워드가 total이 아닐경우  -->
+				SELECT
+					*
+				FROM
+					BOARD
+				WHERE
+					<if test="searchKeyword.equals('writer')">
+						WRITER LIKE CONCAT('%'#{searchWord},'%')
+					</if>
+					<if test="searchKeyword.equals('subject')">
+						SUBJECT LIKE CONCAT('%',#{searchWord},'%')
+					</if>
+				ORDER BY
+					REF DESC,	<!-- 내림차순 -->
+					RE_STEP		<!-- 오름차순 -->
+				LIMIT
+					#{startBoardIdx}, #{onePageViewCount}
+			</otherwise>
+		</choose>
+	
+	</select>
+</mapper>
