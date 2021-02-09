@@ -21,9 +21,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.spring.boardEx02.controller" />
-	<context:component-scan base-package="com.spring.boardEx02.dao" />
-	<context:component-scan base-package="com.spring.boardEx02.service" />
+	<context:component-scan base-package="com.spring.pr1_17.controller" />
+	<context:component-scan base-package="com.spring.pr1_17.dao" />
+	<context:component-scan base-package="com.spring.pr1_17.service" />
 	
 	
 	

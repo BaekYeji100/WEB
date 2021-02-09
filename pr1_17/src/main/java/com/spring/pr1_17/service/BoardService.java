@@ -7,5 +7,5 @@ import com.spring.pr1_17.dto.BoardDTO;
 
 public interface BoardService {
 	public List<BoardDTO> getSearchBoard(Map<String, Object> searchInfo) throws Exception;
-	
+	public int getAllBoardCount(Map<String, String> searchCountInfo) throws Exception;
 }

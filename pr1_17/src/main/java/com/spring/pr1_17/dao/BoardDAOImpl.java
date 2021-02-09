@@ -23,4 +23,10 @@ public class BoardDAOImpl implements BoardDAO {
 		return session.selectList("com.spring.mapper.BoardMapper.getSearchBoard",searchInfo);
 	}
 
+	@Override
+	public int getAllBoardCount(Map<String, String> searchCountInfo) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne("com.spring.mapper.BoardMapper.getAllBoardCount",searchCountInfo);
+	}
+
 }

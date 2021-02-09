@@ -19,5 +19,10 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return dao.getSearchBoard(searchInfo);
 	}
+	@Override
+	public int getAllBoardCount(Map<String, String> searchCountInfo) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.getAllBoardCount(searchCountInfo);
+	}
 
 }
