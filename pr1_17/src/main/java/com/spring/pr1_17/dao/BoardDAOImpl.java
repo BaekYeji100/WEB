@@ -19,6 +19,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List<BoardDTO> getSearchBoard(Map<String, Object> searchInfo) throws Exception {
 		// TODO Auto-generated method stub
+		// 0209로 업데이트 확인
 		return session.selectList("com.spring.mapper.BoardMapper.getSearchBoard",searchInfo);
 	}
 
