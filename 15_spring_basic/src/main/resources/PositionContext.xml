@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+
+	<!-- 하단의 Namespaces태그에서 aop , beans, context 체크 -->
+	<aop:aspectj-autoproxy/>
+	<!-- 
+	
+		# proxy (대변인,대변자) 
+	
+		Spring Framework에게 AOP Proxy를 사용시키게 하는 선언문
+		
+		예시
+		Client >  Request > Real Subject
+		Client > Request > Proxy > Request > Real Subject
+	
+	-->
+	<!-- 실습1) xml 파일에서 객체 주입 -->
+	<!-- 
+		<bean id="myAspect"  class="com.spring.basic.step03_AOP.MyAspect"/>
+		<bean id="classBoss"		 class="com.spring.basic.step03_AOP.ClassBoss"/>
+		<bean id="classManager" 	 class="com.spring.basic.step03_AOP.ClassManager"/>
+		<bean id="classEmployee"  class="com.spring.basic.step03_AOP.ClassEmployee"/>	
+	 -->
+
+	
+	
+	<!-- 실습2) component 어노테이션을 이용한 객체 주입 ( 객체 위에 @Component 기입 ) -->
+	<context:component-scan base-package="com.spring.basic.step03_AOP"/>
+	
+	
+	
+	
+	
+	
+	
+</beans>
