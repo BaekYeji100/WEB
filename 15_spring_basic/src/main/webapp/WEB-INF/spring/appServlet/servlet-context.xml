@@ -20,9 +20,17 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+
+	<beans:bean id="urlBasedViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+        <beans:property name="order" value="1" />			<!-- 순서를 ViewREsolver보다 tiles를 우선으로 지정 -->
+    </beans:bean>
+     
+    <beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <beans:property name="definitions" value="classpath:tiles.xml" />	<!-- 타일즈 지시서 작성 위치 -->
+    </beans:bean>
 	
 	<context:component-scan base-package="com.spring.basic" />
-	
 
 	<beans:bean id="characterManager2" class="com.spring.basic.step01_DI.CharacterManager2"/>
 	<beans:bean id="character1" class="com.spring.basic.step01_DI.Character1"/>

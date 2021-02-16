@@ -52,5 +52,10 @@ public class Main {
 		boss.getWorkTime();
 		manager.getWorkTime();
 		employee.getWorkTime();
+
+		//////////////////
+		
+		employee.normal();
+		employee.mistake();
 	}
 }

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+#container {
+  width: 1000px;
+  margin: 0px auto;
+  padding: 20px;
+  border: 1px solid #bcbcbc;
+}
+#header {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #bcbcbc;
+}
+#content {
+  width: 700px;
+  padding: 20px;
+  margin-bottom: 20px;
+  float: right;
+  border: 1px solid #bcbcbc;
+}
+#sidebar {
+  width: 200px;
+  padding: 20px;
+  margin-bottom: 20px;
+  float: left;
+  border: 1px solid #bcbcbc;
+}
+#footer {
+  clear: both;
+  padding: 20px;
+  border: 1px solid #bcbcbc;
+}
