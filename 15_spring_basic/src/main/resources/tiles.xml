@@ -2,14 +2,41 @@
 <!-- 타일즈 dtd 선언문이 필요하다. -->
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
+<!-- 
+
+	# tiles 
+	
+	- 스프링 타일즈란 뷰페이지의 jsp들을 상단, 사이드, 메인, 하단을 설정 상태로 include 처리해주는 구조의 템플릿
+ 	- 공통사용 및 중복되는 부분들을 페이지별로 따로 작성해주지 않는다. (주로 화면의 상단 및 하단 메뉴 등)
+ 	- 공통사용 및 중복되는 페이지들을 분리하여 일괄관리 할 수 있다. 
+ 	- tiles와 유사한 프레임워크로 SiteMesh 레이아웃 프레임워크가 있다.
+
+	[ 구현 예시 ] 
+	
+	1) pom.xml 에 tiles 관련 dependency 추가
+	2) servlet-context.xml 파일에 타일즈 View Resolver 를 추가
+	3) tiles 관련 설정 xml 지시서 작성
+	4) 레이아웃 작성
+
+ -->
 <tiles-definitions>
-	<definition name="default" template="/WEB-INF/views/tilesEx/layout.jsp">
-		<put-attribute name="header" value="/WEB-INF/views/tilesEx/header.jsp"/>
-		<put-attribute name="footer" value="/WEB-INF/views/tilesEx/footer.jsp"/>
-		<put-attribute name="menu" value="/WEB-INF/views/tilesEx/menu.jsp"/>
+	<definition name="default" template="/WEB-INF/views/tilesEx/layout.jsp">			<!-- 화면 템플릿 -->
+		<put-attribute name="header" value="/WEB-INF/views/tilesEx/header.jsp"/>		<!-- 일반적으로 화면의 상단부 -->
+		<put-attribute name="footer" value="/WEB-INF/views/tilesEx/footer.jsp"/>		<!-- 일반적으로 화면의 하단부 -->
+		<put-attribute name="menu" value="/WEB-INF/views/tilesEx/menu.jsp"/>			<!-- 일반적으로 화면의 메뉴(menu,aside,side bar) -->
 	</definition>
 
-	<definition name="tiles/*" extends="default">
+	<definition name="tiles/*" extends="default">										<!-- definition name과 컨트롤러의 return값과 매칭한다.
+																							 extends 속성을 이용해서 중복된 코드를 따로 분리할 수 있다.
+																							 *(wild card)를 이용해서 컨트롤러의 return값을 패턴 매칭을 할 수 있다.
+																							 첫번째 *의 매칭은 {1}로 표기, 두번째 *의 매칭은 {2}로 표기
+																							 (예시)
+																							 *		{1}
+																							 */* 	{1}{2}
+																							 */*/*	{1}{2}{3}
+																					 	-->
 		<put-attribute name="content" value="/WEB-INF/views/tilesEx/{1}.jsp"></put-attribute>	<!-- {1}이 라는게 * 파일명으로 들어온다 -->
+																								<!-- 일반적으로 화면의 본문(body,main,content,article,root) -->
+		<put-attribute name="title" value="{1}"/>
 	</definition>
 </tiles-definitions>

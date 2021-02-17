@@ -7,23 +7,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title><tiles:insertAttribute name="title"/>	</title>
 <script src="${contextPath }/resources/script.js"></script>
 <link href="${contextPath }/resources/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="container">
 		<header id="header">
-			<tiles:putAttribute name="header"/>		
+			<tiles:insertAttribute name="header"/>		
 		</header>
 		<aside id="sidebar">
-			<tiles:putAttribute name="menu"/>
+			<tiles:insertAttribute name="menu"/>
 		</aside>
 		<article id="content">
-			<tiles:putAttribute name="content"/>
+			<tiles:insertAttribute name="content"/>
 		</article>
 		<footer id="footer">
-			<tiles:putAttribute name="footer"/>
+			<tiles:insertAttribute name="footer"/>
 		</footer>
 	</div>
 </body>
