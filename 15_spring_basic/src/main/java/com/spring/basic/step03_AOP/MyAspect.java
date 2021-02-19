@@ -58,7 +58,6 @@ public class MyAspect {
 	}
 	
 	///////////////////////////////////////////////////////////////////////////////
-	
 	// 메서드 호출 전 후
 	@Around("execution(* getWorkTime())")
 	public void around(ProceedingJoinPoint pjp) throws Throwable {

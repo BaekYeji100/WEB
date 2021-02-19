@@ -12,6 +12,7 @@ import com.spring.pr1_17.dto.BoardDTO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
+
 	@Inject
 	private BoardDAO dao;
 	@Override
@@ -24,5 +25,16 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return dao.getAllBoardCount(searchCountInfo);
 	}
+	@Override
+	public BoardDTO getOneBoard(int num) throws Exception {
+		dao.increaseReadCount(num);
+		return dao.getOneBoard(num);
+	}
+	@Override
+	public void insertBoard(BoardDTO bdto) throws Exception {
+		dao.insertBoard(bdto);
+	}
+
+
 
 }

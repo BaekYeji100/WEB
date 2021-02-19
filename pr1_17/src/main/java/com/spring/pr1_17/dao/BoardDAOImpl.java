@@ -12,14 +12,13 @@ import com.spring.pr1_17.dto.BoardDTO;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
-
+	
 	@Inject
 	private SqlSession session;
 	
 	@Override
 	public List<BoardDTO> getSearchBoard(Map<String, Object> searchInfo) throws Exception {
 		// TODO Auto-generated method stub
-		// 0209로 업데이트 확인
 		return session.selectList("com.spring.mapper.BoardMapper.getSearchBoard",searchInfo);
 	}
 
@@ -28,5 +27,23 @@ public class BoardDAOImpl implements BoardDAO {
 		// TODO Auto-generated method stub
 		return session.selectOne("com.spring.mapper.BoardMapper.getAllBoardCount",searchCountInfo);
 	}
+
+	@Override
+	public BoardDTO getOneBoard(int num) throws Exception {
+		// TODO Auto-generated method stub
+		return session.selectOne("com.spring.mapper.BoardMapper.getOneBoard",num);
+	}
+
+	@Override
+	public void increaseReadCount(int num) throws Exception {
+		session.update("com.spring.mapper.BoardMapper.increaseReadCount",num);
+	}
+
+	@Override
+	public void insertBoard(BoardDTO bdto) throws Exception {
+		session.insert("com.spring.mapper.BoardMapper.insertBoard",bdto);
+		
+	}
+
 
 }
